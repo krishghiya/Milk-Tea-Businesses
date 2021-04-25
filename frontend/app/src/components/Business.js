@@ -3,7 +3,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
 function Business(props) {
-    const linkName = "/" + props.id;
+    const linkName = "/business/" + props.id;
     return(
     <div>
         <ListItem button component="a" href={linkName}>
