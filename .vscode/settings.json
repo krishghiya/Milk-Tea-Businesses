@@ -1,3 +1,18 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "milk-tea-businesses-db.cl5lynndr7si.us-east-1.rds.amazonaws.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "Milk Tea Businesses",
+            "database": "milk_tea_businesses",
+            "username": "client",
+            "password": "clientpassword123"
+        }
+    ]
 }
