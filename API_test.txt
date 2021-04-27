@@ -1,0 +1,13 @@
+GET http://localhost:8080/search/?name=Boba%20Guys
+
+###
+
+GET http://localhost:8080/search/?location=San%20Francisco
+
+###
+
+GET http://localhost:8080/search/?name=Boba%20Guys&location=San%20Francisco
+
+###
+
+GET http://localhost:8080/popular/

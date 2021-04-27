@@ -8,9 +8,9 @@ import org.springframework.data.repository.CrudRepository;
 public interface BusinessRepository extends CrudRepository<Business, String> {
     
     List<Business> findByName(String name);
-    List<Business> findByAddressLike(String address);
-    List<Business> findByNameLikeAndAddressLike(String name, String address);
-    @Query("SELECT b.id, b.name, b.image_url, b.rating, b.review_count, b.display_phone, b.address"
-            +" FROM Business b, BusinessHits h WHERE b.id=h.id")
+    List<Business> findByAddressContaining(String address);
+    List<Business> findByNameContainingAndAddressContaining(String name, String address);
+    
+    @Query("SELECT b FROM Business b, BusinessHits h WHERE b.id=h.id")
     List<Business> findByHits();    
 }

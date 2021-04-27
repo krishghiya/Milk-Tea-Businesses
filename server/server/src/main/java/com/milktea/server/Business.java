@@ -8,8 +8,9 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+
 @Entity
-@Table(name = "Businesses")
+@Table(name="Businesses")
 @Data
 @RequiredArgsConstructor
 public class Business {
