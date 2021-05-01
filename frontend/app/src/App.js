@@ -22,7 +22,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    fetch('https://ihxhi2nz68.execute-api.us-east-1.amazonaws.com/production?location=San%20Jose') // TODO call backend api to find biggest hits
+    fetch('http://localhost:8080/popular') // TODO call backend api to find biggest hits
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -34,7 +34,7 @@ class App extends Component {
   }
   // handles any changes that are made in the business input 
   handleBusinessChange(event) {
-    this.setState({ business: event.target.value });
+    this.setState({ businessName: event.target.value });
   }
   // handles any changes that are made in the location input 
   handleLocationChange(event) {
@@ -43,10 +43,10 @@ class App extends Component {
 
   // handles when the search button is pressed
   handleSubmit(event) {
-    alert('business: ' + this.state.business + ', location: ' + this.state.location);
-    event.preventDefault();
     this.setState({ isLoaded: false });
-    fetch('https://ihxhi2nz68.execute-api.us-east-1.amazonaws.com/production?location=' + this.state.location) // TODO call backend api 
+    
+    if(this.state.businessName === '') {
+    fetch('http://localhost:8080/search?location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -55,6 +55,32 @@ class App extends Component {
           items: result,
         });
       });
+    } else if(this.state.location === '') {
+      fetch('http://localhost:8080/search?name=' + this.state.businessName) 
+      .then(res => res.json())
+      .then((result) => {
+        console.log(result);
+        this.setState({
+          isLoaded: true,
+          items: result,
+        });
+      });
+    } else {
+      fetch('http://localhost:8080/search?name=' + this.state.businessName + '&location=' + this.state.location) 
+      .then(res => res.json())
+      .then((result) => {
+        console.log(result);
+        this.setState({
+          isLoaded: true,
+          items: result,
+        });
+      });
+    }
+
+    this.setState({
+      businessName: '',
+      location: '',
+    });
 
   }
 
@@ -80,7 +106,7 @@ class App extends Component {
               <Button type='submit'>Search</Button>
             </form>
             <List component='nav'>
-              {items.map(item => (<Business key={item.id} id={item.id} name={item.name} address={item.location.address1} />))}
+              {items.map(item => (<Business key={item.id} id={item.id} name={item.name} address={item.address} />))}
             </List>
           </div>
         );
