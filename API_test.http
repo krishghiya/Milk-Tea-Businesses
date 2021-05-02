@@ -11,3 +11,9 @@ GET http://localhost:8080/search/?name=Boba%20Guys&location=San%20Francisco
 ###
 
 GET http://localhost:8080/popular/
+
+###
+
+PATCH http://localhost:8080/increment/?id=Am53YFKjoEjen49EQMbU5A
+
+###
