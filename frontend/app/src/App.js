@@ -43,7 +43,8 @@ class App extends Component {
 
   // handles when the search button is pressed
   handleSubmit(event) {
-    this.setState({ isLoaded: false });
+    this.setState({ isLoaded: false 
+    });
     
     if(this.state.businessName === '') {
     fetch('http://localhost:8080/search?location=' + this.state.location) 
@@ -113,6 +114,16 @@ class App extends Component {
       } else {
         const businessUrl = urlItems[1];
         const businessId = businessUrl.split('/')[1]; // contains id of the business to display
+        const patchApiUrl = 'http://localhost:8080/increment?id=' + businessId;
+        console.log(patchApiUrl);
+        fetch(patchApiUrl, {
+          method: 'PATCH',
+          headers: {
+            "Content-type": "application/json"
+          },
+        }).then(response => {
+          console.log(response)
+        });
         return <h1>Business Page</h1>
       }
     }
