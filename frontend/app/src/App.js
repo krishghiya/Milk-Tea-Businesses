@@ -43,7 +43,8 @@ class App extends Component {
 
   // handles when the search button is pressed
   handleSubmit(event) {
-    this.setState({ isLoaded: false });
+    this.setState({ isLoaded: false 
+    });
     
     if(this.state.businessName === '') {
     fetch('http://localhost:8080/search?location=' + this.state.location) 
@@ -99,7 +100,7 @@ class App extends Component {
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
-            <h1>Milk Tea Businesses</h1>
+            <h1>Gimme Tea!</h1>
             <form onSubmit={this.handleSubmit}>
               <Input id='business' icon='coffee' iconPosition='left' placeholder='Business Name' value={this.state.value} onChange={this.handleBusinessChange} />
               <Input id='location' icon='location arrow' iconPosition='left' placeholder='City (e.g. San Jose, CA)' value={this.state.value} onChange={this.handleLocationChange} />

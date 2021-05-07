@@ -19,6 +19,6 @@ public interface BusinessRepository extends CrudRepository<Business, String> {
     @Query("UPDATE BusinessHits SET hits=hits+1 WHERE id=?1")
     Integer incrementHits(String id);
 
-    @Query("SELECT b FROM Business b, BusinessHits h WHERE b.id=h.id")
+    @Query("SELECT b FROM Business b, BusinessHits h WHERE b.id=h.id ORDER BY h.hits DESC")
     List<Business> findByHits();    
 }
