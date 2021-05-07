@@ -100,7 +100,7 @@ class App extends Component {
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
-            <h1>Milk Tea Businesses</h1>
+            <h1>Gimme Tea!</h1>
             <form onSubmit={this.handleSubmit}>
               <Input id='business' icon='coffee' iconPosition='left' placeholder='Business Name' value={this.state.value} onChange={this.handleBusinessChange} />
               <Input id='location' icon='location arrow' iconPosition='left' placeholder='City (e.g. San Jose, CA)' value={this.state.value} onChange={this.handleLocationChange} />
