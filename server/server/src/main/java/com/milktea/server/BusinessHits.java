@@ -8,19 +8,14 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-
 @Entity
-@Table(name="Businesses")
+@Table
 @Data
 @RequiredArgsConstructor
-public class Business {
+public class BusinessHits {
         
     @Id private String id;
     @Column String name;
-    @Column private String image_url;
-    @Column private int rating;
-    @Column private int review_count;
-    @Column private String display_phone;
-    @Column private String address;
+    @Column private int hits;
 
 }
