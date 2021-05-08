@@ -22,7 +22,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    fetch('http://localhost:8080/popular') // TODO call backend api to find biggest hits
+    fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/popular') 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -47,7 +47,7 @@ class App extends Component {
     });
     
     if(this.state.businessName === '') {
-    fetch('http://localhost:8080/search?location=' + this.state.location) 
+    fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -57,7 +57,7 @@ class App extends Component {
         });
       });
     } else if(this.state.location === '') {
-      fetch('http://localhost:8080/search?name=' + this.state.businessName) 
+      fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -67,7 +67,7 @@ class App extends Component {
         });
       });
     } else {
-      fetch('http://localhost:8080/search?name=' + this.state.businessName + '&location=' + this.state.location) 
+      fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName + '&location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -96,7 +96,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      var urlItems = url.split('http://localhost:3000/')
+      var urlItems = url.split('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
