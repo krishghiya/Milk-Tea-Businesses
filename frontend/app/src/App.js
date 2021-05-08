@@ -96,7 +96,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      var urlItems = url.split('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/')
+      var urlItems = url.split('https://main.d3bwujt20ylxxp.amplifyapp.com/')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
