@@ -22,7 +22,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    fetch('https://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/popular') 
+    fetch('https://cors-anywhere.herokuapp.com/http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/popular') 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -47,7 +47,7 @@ class App extends Component {
     });
     
     if(this.state.businessName === '') {
-    fetch('https://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?location=' + this.state.location) 
+    fetch('https://cors-anywhere.herokuapp.com/http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -57,7 +57,7 @@ class App extends Component {
         });
       });
     } else if(this.state.location === '') {
-      fetch('https://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName) 
+      fetch('https://cors-anywhere.herokuapp.com/http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -67,7 +67,7 @@ class App extends Component {
         });
       });
     } else {
-      fetch('https://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName + '&location=' + this.state.location) 
+      fetch('https://cors-anywhere.herokuapp.com/http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName + '&location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -96,7 +96,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      var urlItems = url.split('https://milk-tea-businesses.s3-us-west-1.amazonaws.com/index.html')
+      var urlItems = url.split('https://main.d294dy8gdsjpxm.amplifyapp.com/')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
