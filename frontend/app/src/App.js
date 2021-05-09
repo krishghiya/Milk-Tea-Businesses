@@ -96,7 +96,8 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      var urlItems = url.split('https://main.d3bwujt20ylxxp.amplifyapp.com/')
+      //var urlItems = url.split('https://main.d3bwujt20ylxxp.amplifyapp.com/')
+      var urlItems = url.split('http://localhost:3001/')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
@@ -114,7 +115,15 @@ class App extends Component {
       } else {
         const businessUrl = urlItems[1];
         const businessId = businessUrl.split('/')[1]; // contains id of the business to display
-        return <h1>Business Page</h1>
+        return (
+        <div className="Business">
+          <h1>Business Page</h1>
+          <List component='nav1'>
+            {items.map(business => (<Business key={business.businessUrl} id={business.businessUrl} name={business.name} />))}
+          </List>
+        </div>
+             
+        );
       }
     }
 
