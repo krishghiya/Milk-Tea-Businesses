@@ -96,7 +96,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      var urlItems = url.split('https://main.d3bwujt20ylxxp.amplifyapp.com/')
+      var urlItems = url.split('https://milk-tea-businesses.s3-us-west-1.amazonaws.com/index.html')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
