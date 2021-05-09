@@ -22,7 +22,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/popular') 
+    fetch('https://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/popular') 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -47,7 +47,7 @@ class App extends Component {
     });
     
     if(this.state.businessName === '') {
-    fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?location=' + this.state.location) 
+    fetch('https://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -57,7 +57,7 @@ class App extends Component {
         });
       });
     } else if(this.state.location === '') {
-      fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName) 
+      fetch('https://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -67,7 +67,7 @@ class App extends Component {
         });
       });
     } else {
-      fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName + '&location=' + this.state.location) 
+      fetch('https://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName + '&location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
