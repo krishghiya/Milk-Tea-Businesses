@@ -7,6 +7,12 @@ Team Members: Krish Ghiya, Jasmit Mahajan, and Sean Quach
 Gimme Tea! is a web application that allows users to browse popular milk tea businesses based on their hits on the application. The web application also allows users to search up a specific business based on a name or location. In addition, users can view more details on businesses by clicking on them. 
 
 # Sample Demo Screenshots
+## Home Page Screenshot
+![Home Page](./screenshots/HomePage.JPG?raw=true)
+## Name Search Screenshot
+![Name Search Page](./screenshots/NameSearch.JPG?raw=true)
+## Location Search Screenshot
+![Location Search Page](./screenshots/LocationSearch.JPG?raw=true)
 
 # Running the Project Locally
 After cloning the project, ensure that npm is installed on the device. This can be done by running the commands:
