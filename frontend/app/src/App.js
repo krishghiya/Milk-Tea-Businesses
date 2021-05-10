@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import List from "@material-ui/core/List";
 import { Input, Button } from 'semantic-ui-react';
 import Business from "./components/Business";
+import BusinessPage from "./components/BusinessPage";
 
 class App extends Component {
-
 
   constructor(props) {
     super(props);
@@ -96,7 +96,8 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      var urlItems = url.split('https://main.d294dy8gdsjpxm.amplifyapp.com/')
+      //var urlItems = url.split('https://main.d294dy8gdsjpxm.amplifyapp.com/')
+      var urlItems = url.split('http://localhost:3001/')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
@@ -114,7 +115,17 @@ class App extends Component {
       } else {
         const businessUrl = urlItems[1];
         const businessId = businessUrl.split('/')[1]; // contains id of the business to display
-        return <h1>Business Page</h1>
+        var businessDetails = items.filter(item => item.id === businessId)[0];
+        console.log(businessDetails);
+        return (
+          <div classname="App">
+              <h2><BusinessPage key={businessDetails.id} id={businessDetails.id} name={businessDetails.name} /></h2>
+              <BusinessPage key={businessDetails.id} id={businessDetails.id} image_url={businessDetails.image_url} />
+              <h3>Address: <BusinessPage key={businessDetails.id} id={businessDetails.id} address={businessDetails.address} /> </h3>
+              <h3>Rating: <BusinessPage key={businessDetails.id} id={businessDetails.id} rating={businessDetails.rating} /> </h3>
+              <h3>Phone Number: <BusinessPage key={businessDetails.id} id={businessDetails.id} display_phone={businessDetails.display_phone} /> </h3>
+          </div>   
+        );
       }
     }
 

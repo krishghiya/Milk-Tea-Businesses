@@ -21,7 +21,6 @@ function Business(props) {
             }}>
                 <ListItemText primary={props.name}></ListItemText>
                 <ListItemText primary={props.address} style={{ display: 'flex', justifyContent: 'flex-end' }}></ListItemText>
-
             </ListItem>
         </div>
     );
