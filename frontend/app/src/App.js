@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import List from "@material-ui/core/List";
 import { Input, Button } from 'semantic-ui-react';
 import Business from "./components/Business";
+import BusinessPage from "./components/BusinessPage";
 
 class App extends Component {
-
 
   constructor(props) {
     super(props);
@@ -22,7 +22,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/popular') 
+    fetch('https://cors-anywhere.herokuapp.com/http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/popular') 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -47,7 +47,7 @@ class App extends Component {
     });
     
     if(this.state.businessName === '') {
-    fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?location=' + this.state.location) 
+    fetch('https://cors-anywhere.herokuapp.com/http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -57,7 +57,7 @@ class App extends Component {
         });
       });
     } else if(this.state.location === '') {
-      fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName) 
+      fetch('https://cors-anywhere.herokuapp.com/http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -67,7 +67,7 @@ class App extends Component {
         });
       });
     } else {
-      fetch('http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName + '&location=' + this.state.location) 
+      fetch('https://cors-anywhere.herokuapp.com/http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/search?name=' + this.state.businessName + '&location=' + this.state.location) 
       .then(res => res.json())
       .then((result) => {
         console.log(result);
@@ -96,7 +96,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      //var urlItems = url.split('https://main.d3bwujt20ylxxp.amplifyapp.com/')
+      //var urlItems = url.split('https://main.d294dy8gdsjpxm.amplifyapp.com/')
       var urlItems = url.split('http://localhost:3001/')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
@@ -116,13 +116,15 @@ class App extends Component {
         const businessUrl = urlItems[1];
         const businessId = businessUrl.split('/')[1]; // contains id of the business to display
         return (
-        <div className="Business">
-          <h1>Business Page</h1>
-          <List component='nav1'>
-            {items.map(business => (<Business key={business.businessUrl} id={business.businessUrl} name={business.name} />))}
-          </List>
-        </div>
-             
+          <div classname="App">
+            <div>
+              <h1>{items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} name={item.name} />))}</h1>
+            </div>
+            <img src={items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} image_url={item.image_url} />))} />
+            <h3>Address: {items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} address={item.address} />))}</h3>
+            <h3>Rating: {items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} rating={item.rating} />))}</h3>
+            <h3>Phone Number: {items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} display_phone={item.display_phone} />))}</h3>
+          </div>   
         );
       }
     }
