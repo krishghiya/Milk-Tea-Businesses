@@ -119,7 +119,7 @@ class App extends Component {
         console.log(businessDetails);
         return (
           <div classname="App">
-              <h1> <BusinessPage key={businessDetails.id} id={businessDetails.id} name={businessDetails.name} /> </h1>
+              <h2><BusinessPage key={businessDetails.id} id={businessDetails.id} name={businessDetails.name} /></h2>
               <BusinessPage key={businessDetails.id} id={businessDetails.id} image_url={businessDetails.image_url} />
               <h3>Address: <BusinessPage key={businessDetails.id} id={businessDetails.id} address={businessDetails.address} /> </h3>
               <h3>Rating: <BusinessPage key={businessDetails.id} id={businessDetails.id} rating={businessDetails.rating} /> </h3>
