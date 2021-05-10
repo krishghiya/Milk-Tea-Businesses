@@ -115,15 +115,15 @@ class App extends Component {
       } else {
         const businessUrl = urlItems[1];
         const businessId = businessUrl.split('/')[1]; // contains id of the business to display
+        var businessDetails = items.filter(item => item.id === businessId)[0];
+        console.log(businessDetails);
         return (
           <div classname="App">
-            <div>
-              <h1>{items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} name={item.name} />))}</h1>
-            </div>
-            <img src={items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} image_url={item.image_url} />))} />
-            <h3>Address: {items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} address={item.address} />))}</h3>
-            <h3>Rating: {items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} rating={item.rating} />))}</h3>
-            <h3>Phone Number: {items.filter(item => item.id === businessId).map(item => (<BusinessPage key={item.id} id={item.id} display_phone={item.display_phone} />))}</h3>
+              <h1> <BusinessPage key={businessDetails.id} id={businessDetails.id} name={businessDetails.name} /> </h1>
+              <BusinessPage key={businessDetails.id} id={businessDetails.id} image_url={businessDetails.image_url} />
+              <h3>Address: <BusinessPage key={businessDetails.id} id={businessDetails.id} address={businessDetails.address} /> </h3>
+              <h3>Rating: <BusinessPage key={businessDetails.id} id={businessDetails.id} rating={businessDetails.rating} /> </h3>
+              <h3>Phone Number: <BusinessPage key={businessDetails.id} id={businessDetails.id} display_phone={businessDetails.display_phone} /> </h3>
           </div>   
         );
       }
