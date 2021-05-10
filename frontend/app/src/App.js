@@ -96,7 +96,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      var urlItems = url.split('https://main.d294dy8gdsjpxm.amplifyapp.com/')
+      var urlItems = url.split('http://localhost:3000/')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
@@ -118,11 +118,7 @@ class App extends Component {
         console.log(businessDetails);
         return (
           <div classname="App">
-              <h2><BusinessPage key={businessDetails.id} id={businessDetails.id} name={businessDetails.name} /></h2>
-              <BusinessPage key={businessDetails.id} id={businessDetails.id} image_url={businessDetails.image_url} />
-              <h3>Address: <BusinessPage key={businessDetails.id} id={businessDetails.id} address={businessDetails.address} /> </h3>
-              <h3>Rating: <BusinessPage key={businessDetails.id} id={businessDetails.id} rating={businessDetails.rating} /> </h3>
-              <h3>Phone Number: <BusinessPage key={businessDetails.id} id={businessDetails.id} display_phone={businessDetails.display_phone} /> </h3>
+              <BusinessPage key={businessDetails.id} id={businessDetails.id}  name={businessDetails.name} image_url={businessDetails.image_url} address={businessDetails.address} rating={businessDetails.rating} display_phone={businessDetails.display_phone} review_count={businessDetails.review_count}/>
           </div>   
         );
       }

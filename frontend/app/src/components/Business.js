@@ -8,7 +8,7 @@ function Business(props) {
     return (
         <div>
             <ListItem button component="a" href={linkName} onClick={() => {
-                const patchApiUrl = 'http://localhost:8080/increment?id=' + props.id;
+                const patchApiUrl = 'http://gimmetea-env.eba-zfp8grcb.us-east-1.elasticbeanstalk.com/increment?id=' + props.id;
                 console.log(patchApiUrl);
                 fetch(patchApiUrl, {
                     method: 'PATCH',
