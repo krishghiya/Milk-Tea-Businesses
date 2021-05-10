@@ -49,3 +49,10 @@ npm start
 ```
 This will run the frontend, which can be viewed at [localhost:3000]()
 # System Diagram, Class/Sequence/DB Schema
+## System Diagram
+
+## Class Diagram
+
+## Sequence Diagram
+
+## DB Schema
