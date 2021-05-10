@@ -14,6 +14,9 @@ Gimme Tea! is a web application that allows users to browse popular milk tea bus
 ## Location Search Screenshot
 ![Location Search Page](./screenshots/LocationSearch.JPG?raw=true)
 
+## Location Search Screenshot
+![Business Page](./screenshots/BusinessPage.PNG?raw=true)
+
 # Running the Project Locally
 After cloning the project, ensure that npm is installed on the device. This can be done by running the commands:
 ```
