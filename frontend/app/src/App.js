@@ -96,7 +96,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       const url = window.location.href;
-      var urlItems = url.split('http://localhost:3000/')
+      var urlItems = url.split('https://main.d294dy8gdsjpxm.amplifyapp.com/')
       if (urlItems[0] === '' && urlItems[1] === '') { // if no search queries are made, display default (based on business hits)
         return (
           <div className="App">
