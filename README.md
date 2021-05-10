@@ -50,9 +50,12 @@ npm start
 This will run the frontend, which can be viewed at [localhost:3000]()
 # System Diagram, Class/Sequence/DB Schema
 ## System Diagram
-
-## Class Diagram
-
+![System Diagram](./screenshots/SystemDiagram.jpg?raw=true)
+## Class Diagram (Frontend)
+![System Diagram](./screenshots/ClassDiagramFrontend.jpg?raw=true)
+## Class Diagram (Backend)
+![System Diagram](./screenshots/ClassDiagramBackend.jpg?raw=true)
 ## Sequence Diagram
-
+![System Diagram](./screenshots/SequenceDiagram.jpg?raw=true)
 ## DB Schema
+![System Diagram](./screenshots/DatabaseSchema.jpg?raw=true)
